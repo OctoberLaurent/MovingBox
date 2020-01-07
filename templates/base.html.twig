@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+    </head>
+    <body>
+    
+    
+<ul class="nav">
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+      <li class="nav-item">
+      <a class="nav-link" href="{{ path('rooms_index') }}">Rooms</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{{ path('boxes_index') }}">Boxes</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+      </li>
+    {% else %}
+      <li class="nav-item">
+      <a class="nav-link" href="{{ path('app_registration') }}">Registration</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+      </li>
+    {% endif %}
+</ul>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+    </body>
+</html>

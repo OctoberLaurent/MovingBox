@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boxes{% endblock %}
+
+{% block body %}
+<div class="container bg-white">
+<h1>Boxes</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ box.id }}</td>
+            </tr>
+            <tr>
+                <th>Number</th>
+                <td>{{ box.number }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ box.name }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ box.picture }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('boxes_index') }}">back to list</a>
+
+    <a href="{{ path('boxes_edit', {'id': box.id}) }}">edit</a>
+
+    {{ include('boxes/_delete_form.html.twig') }}
+
+</div>
+    
+{% endblock %}

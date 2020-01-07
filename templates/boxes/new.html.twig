@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Boxes{% endblock %}
+
+{% block body %}
+<div class="container bg-white">
+    <h1>Create new Boxes</h1>
+
+    {{ include('boxes/_form.html.twig') }}
+
+    <a href="{{ path('boxes_index') }}">back to list</a>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script type="text/javascript">
+        $('.content').collection();
+    </script>
+{% endblock %}
+
